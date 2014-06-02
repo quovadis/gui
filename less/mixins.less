@@ -1,0 +1,184 @@
+.box-shadow (@string: none) {
+    -webkit-box-shadow: @string;
+    -moz-box-shadow: @string;
+    -ms-box-shadow: @string;
+    -o-box-shadow: @string;
+    box-shadow: @string;
+}
+
+.radius (@radius: 0) {
+    -webkit-border-radius: @radius;
+    -moz-border-radius: @radius;
+    border-radius: @radius;
+}
+
+.absoluteCenter (@width, @height) {
+    position: absolute;
+    left: 50%;
+    width: @width;
+    margin-left: -@width/2;
+    top: 50%;
+    height: @height;
+    margin-top: -@height/2;
+}
+
+.transform (@transform) {
+    -webkit-transform: @transform;
+    -moz-transform: @transform;
+    -ms-transform: @transform;
+    -o-transform: @transform;
+    transform: @transform;
+}
+
+.box-sizing (@box-sizing: border-box) {
+    box-sizing: @box-sizing;
+    -moz-box-sizing: @box-sizing;
+    -webkit-box-sizing: @box-sizing;
+}
+
+.user-select (@user-select: none) {
+    -webkit-user-select: @user-select;
+    -khtml-user-select: @user-select;
+    -moz-user-select: @user-select;
+    -ms-user-select: @user-select;
+    user-select: @user-select;
+}
+
+.appearance (@appearance: none) {
+    appearance: @appearance;
+    -moz-appearance: @appearance;
+    -webkit-appearance: @appearance;
+}
+
+
+.border (@border: 0) {
+    border: @border;
+    border-top: @border;
+    border-right: @border;
+    border-bottom: @border;
+    border-left: @border;
+}
+
+.transition (@transition) {
+    -webkit-transition: @transition;
+    -moz-transition: @transition;
+    -o-transition: @transition;
+    transition: @transition;
+}
+
+
+
+
+
+
+  //////////////////////////
+ // Bootstrap's rewrites //
+//////////////////////////
+
+.button-variant(@color, @background, @border, @state-background:darken(@background, 8%)) { //bM
+    color: @color;
+    background-color: @background;
+    border-color: @border;
+
+    &:hover,
+    &.hover,
+    &:focus,
+    &.focus,
+    &:active,
+    &.active,
+    .open .dropdown-toggle& {
+        color: @color;
+        background-color: @state-background;
+        border-color: @state-background;
+    }
+
+    &:focus,
+    &.focus,
+    &:active,
+    &.active,
+    .open .dropdown-toggle& {
+        .box-shadow(inset 0 0 4px 0 fade(@black,50%));
+    }
+
+    &:active,
+    &.active,
+    .open .dropdown-toggle& {
+        background-image: none;
+    }
+
+    &:focus {
+        outline-width: 0;
+    }
+
+    &.disabled,
+    &[disabled],
+    fieldset[disabled] & {
+        &,
+        &:hover,
+        &:focus,
+        &:active,
+        &.active {
+            background-color: @background;
+            border-color: @border;
+        }
+    }
+
+    .badge {
+        color: @background;
+        background-color: @color;
+    }
+}
+
+.form-control-focus(@color: @input-border-focus) {
+    @color-rgba: rgba(red(@color), green(@color), blue(@color), .6);
+
+    &:focus {
+        border-color: @color;
+        outline: 0;
+        .box-shadow;
+    }
+}
+
+.form-control-validation(@text-color: #555; @border-color: #ccc; @background-color: #f5f5f5) {
+    // Color the label and help text
+    .help-block,
+    .control-label,
+    .radio,
+    .checkbox,
+    .radio-inline,
+    .checkbox-inline {
+        color: @text-color;
+    }
+
+    // Set the border and box shadow on specific inputs to match
+    .form-control {
+        border-color: @border-color;
+        color: @text-color;
+
+        &:focus {
+            border-color: darken(@border-color, 10%);
+            color: darken(@text-color, 10%);
+            .box-shadow;
+        }
+    }
+
+    // Set validation states also for addons
+    .input-group-addon {
+        color: @white;
+        border-color: @border-color;
+        background-color: @background-color;
+    }
+
+    // Optional feedback icon
+    .form-control-feedback {
+        color: @text-color;
+    }
+}
+
+
+
+
+
+
+// With love
+// From AppVentus, Nantes France

@@ -1,0 +1,140 @@
+  //////////////
+ // Headings //
+//////////////
+
+h1,
+h2,
+h3,
+h4 {
+    font-size: 16px;
+    font-weight: normal;
+    font-style: normal;
+    line-height: normal;
+    display: inline;
+}
+
+
+
+
+
+
+  ////////////////
+ // Background //
+////////////////
+
+.bg-grey {
+    background-color: @grey;
+}
+
+.bg-grey-dark {
+    background-color: @grey-dark;
+}
+
+.bg-anthracite {
+    background-color: @anthracite;
+}
+
+.bg-anthracite-dark {
+    background-color: @anthracite-dark;
+}
+
+.bg-mint {
+    background-color: @mint;
+}
+
+.bg-mint-dark {
+    background-color: @mint-dark;
+}
+
+.bg-orange {
+    background-color: @orange;
+}
+
+.bg-orange-dark {
+    background-color: @orange-dark;
+}
+
+.bg-purple {
+    background-color: @purple;
+}
+
+.bg-purple-dark {
+    background-color: @purple-dark;
+}
+
+
+// Texture
+//////////
+
+.mint-grid-texture,
+.paper-texture {
+    background-repeat: repeat;
+    background-position: center;
+}
+
+.mint-grid-texture {
+    background-image: url("@{imagesPath}/texture/mint-grid-sample.png");
+}
+
+.paper-texture {
+    background-image: url("@{imagesPath}/texture/paper-sample.png");
+}
+
+
+
+
+
+
+  ////////////
+ // Inline //
+////////////
+
+.strong {
+    font-weight: bold;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.line-through {
+    text-decoration: line-through;
+}
+
+.small {
+    font-size: 85%;
+}
+
+
+
+
+
+
+
+
+  //////////
+ // List //
+//////////
+
+.table-list {
+    list-style: none;
+    width: 100%;
+    display: table;
+    width: 100%;
+    border-collapse: separate;
+    padding: 0;
+    table-layout: fixed;
+
+    > li {
+        display: table-cell;
+        &:extend(.text-center);
+    }
+}
+
+
+
+
+
+
+// With love
+// From AppVentus, Nantes France

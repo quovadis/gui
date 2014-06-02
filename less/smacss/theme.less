@@ -1,0 +1,493 @@
+  /////////////
+ // Buttons //
+/////////////
+
+// Classic
+//////////
+
+.btn { //bS
+    &:not(.btn-default):not(.btn-primary):not(.btn-success):not(.btn-danger):not(.btn-info):not(.btn-warning):not(.btn-link) {
+        border-color: @btn-unstyled-border-color;
+        color: @btn-unstyled-color;
+        background-color: @btn-unstyled-background;
+    }
+}
+
+
+// Default
+//////////
+
+.btn-default { //bS
+    .button-variant(@btn-default-color, @btn-default-bg, @btn-default-bg, @btn-default-state); //bM
+}
+
+
+// Primary
+//////////
+
+.btn-primary { //bS
+    .button-variant(@btn-primary-color, @btn-primary-bg, @btn-primary-bg, @btn-primary-state); //bM
+}
+
+
+// Success
+//////////
+
+.btn-success { //bS
+    .button-variant(@btn-success-color, @btn-success-bg, @btn-success-bg, @btn-success-state); //bM
+}
+
+
+// Danger
+/////////
+
+.btn-danger { //bS
+    .button-variant(@btn-danger-color, transparent, @btn-danger-bg, @btn-danger-state); //bM
+    border-color: @purple-dark;
+    color: @purple-dark;
+    .transition (background-color 150ms @switcher-transition-timing);
+}
+
+// Danger white
+
+.btn-danger-white {
+    color: @white;
+    border-color: @white;
+    .transition (all 150ms @switcher-transition-timing);
+}
+
+
+
+
+
+
+  //////////////////
+ // Form Element //
+//////////////////
+
+// Radio & Checkbox
+///////////////////
+
+.custom-checkbox,
+.custom-radio {
+    + label {
+        background-repeat: no-repeat;
+        background-position: left center;
+        cursor: pointer;
+    }
+
+    &:disabled {
+        + label {
+            cursor: no-drop;
+        }
+
+        &:checked {
+            cursor: no-drop;
+        }
+    }
+}
+
+
+.custom-checkbox {
+    + label {
+        background-image: url("@{imagesPath}/checkbox/default.png");
+    }
+}
+
+
+.custom-radio {
+    + label {
+        background-image: url("@{imagesPath}/radio/default.png");
+    }
+}
+
+
+// Switcher
+///////////
+
+.switcher {
+    + label {
+        cursor: pointer;
+
+        &:before,
+        &:after {
+            .transition (all @switcher-transition-duration @switcher-transition-timing);
+        }
+
+        &:before {
+            background-color: @switcher-normal-color;
+            border-color: @switcher-border-color;
+            .radius(@switcher-height / 2);
+        }
+
+        &:after {
+            background-color: @switcher-normal-color;
+            .box-shadow(0 0 3px fade(@black,25%));
+            .radius(50%);
+        }
+    }
+}
+
+
+// Checkbox to switcher
+///////////////////////
+
+@media (min-width: 769px) {
+    .checkbox-to-switcher {
+        + label {
+            background-repeat: no-repeat;
+            background-position: left center;
+            cursor: pointer;
+            background-image: url("@{imagesPath}/checkbox/default.png");
+        }
+
+        &:disabled {
+            + label {
+                cursor: no-drop;
+            }
+
+            &:checked {
+                cursor: no-drop;
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .checkbox-to-switcher {
+        + label {
+            cursor: pointer;
+
+            &:before,
+            &:after {
+                .transition (all @switcher-transition-duration @switcher-transition-timing);
+            }
+
+            &:before {
+                background-color: @switcher-normal-color;
+                border-color: @switcher-border-color;
+                .radius(@switcher-height / 2);
+            }
+
+            &:after {
+                background-color: @switcher-normal-color;
+                .box-shadow(0 0 3px fade(@black,25%));
+                .radius(50%);
+            }
+        }
+    }
+}
+
+
+// Form control
+///////////////
+
+.form-control { //bS
+    .box-shadow;
+}
+
+
+
+
+
+
+  ////////////////
+ // Breadcrumb //
+////////////////
+
+.breadcrumb { //bV
+    border-color: @grey;
+}
+
+
+// Process
+//////////
+
+.process {
+    .radius(5px);
+    border-color: @grey;
+    background-color: @white;
+
+    li {
+        &:extend(.text-center);
+        background-color: #d2d2d2;
+
+        &:after {
+            z-index: 2;
+            background-image: url("@{imagesPath}/process/process-breadcrumb-arrow.png");
+        }
+
+        a {
+            color: @white;
+        }
+    }
+}
+
+
+
+
+
+
+  //////////////////////
+ // Desktop Carousel //
+//////////////////////
+
+// Top Carousel
+///////////////
+
+.top-carousel {
+    border-color: @grey;
+}
+
+// elements
+
+.progress {
+    &:extend(.bg-purple);
+}
+
+.top-carousel-heading {
+    color: @white;
+    background-color: rgba(92, 53, 48, 0.75);
+}
+
+
+// Bottom Carousel
+//////////////////
+
+.bottom-carousel {
+    border-color: @grey;
+
+    .carousel-control {
+        background-image: none;
+        text-shadow: none;
+        opacity: 1;
+        color: @mint;
+    }
+
+    .carousel-indicators {
+        li {
+            background-color: fade(@mint, 25%);
+        }
+    }
+}
+
+
+
+
+
+
+  ////////////////
+ // Tabcordion //
+////////////////
+
+// Tab
+//////
+
+@media(min-width: 769px) {
+    .tabcordion-group {
+        background-color: @white;
+        border-color: @grey;
+        z-index: 2;
+        .radius(@border-radius-base);
+        .box-shadow(0px 2px 8px 0px fade(@black, 15%));
+
+        &:before {
+            background-color: @anthracite-dark;
+            z-index: -1;
+            border-color: @mint;
+        }
+    }
+
+    .tabcordion-head {
+        background-color: @anthracite-dark;
+        border-color: @mint;
+
+        a {
+            text-shadow: 0px 1px 1px fade(@black, 33%);
+            color: @white;
+            border-color: @black;
+        }
+    }
+}
+
+
+// Acordion
+///////////
+
+@media (max-width: 768px) {
+    .tabcordion {
+        border-color: @grey;
+        background-color: @white;
+        .radius(@border-radius-base);
+    }
+
+    .tabcordion-head {
+        &:after {
+            z-index: 1;
+        }
+
+        a {
+            z-index: 2;
+        }
+
+        span {
+            background-color: @anthracite-dark;
+            color: @white;
+            border-right-color: @mint;
+        }
+    }
+}
+
+
+
+
+
+
+  ///////////////////////////
+ // Horizontal Breadcrumb //
+///////////////////////////
+
+.vertical-breadcrumb {
+    li {
+        color: @verticalBreadcrumbColor;
+
+        &:before {
+            color: @white;
+            background-color: @verticalBreadcrumbColor;
+            &:extend(.text-center);
+            .radius(@verticalBreadcrumbCircleSize / 2);
+        }
+
+        &:not(:first-child) {
+            &:after {
+                background-color: @verticalBreadcrumbColor;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+  /////////////////
+ // Credit Card //
+/////////////////
+
+.creditCard {
+    background-image: url("@{imagesPath}/credit-card/background.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+}
+
+
+
+
+
+
+  /////////////
+ // Nav bar //
+/////////////
+
+.nav-bar {
+    border-color: @grey;
+    background-color: @white;
+    .radius(@border-radius-base);
+
+    .btn {
+        .radius;
+    }
+
+    a {
+        &:not(.btn) {
+            color: @grey-dark;
+        }
+    }
+}
+
+
+
+
+
+
+  ///////////
+ // Close //
+///////////
+
+.close { //bS
+    opacity: 1;
+}
+
+
+
+
+
+
+  //////////
+ // Gate //
+//////////
+
+.gate {
+    color: @white;
+    border-color: @grey;
+
+    .btn {
+        z-index: 2;
+    }
+}
+
+.gate-title,
+.gate-sub-title {
+    &:extend(.text-center);
+}
+
+
+
+
+
+
+  ///////////////
+ // Old Price //
+///////////////
+
+.old-price {
+    color: @grey;
+    &:extend(.line-through);
+}
+
+
+
+
+
+
+  //////////////////
+ // Color sample //
+//////////////////
+
+.color-sample {
+    .radius(@color-sample-size / 2);
+}
+
+
+
+
+
+
+  ///////////////
+ // Thumbnail //
+///////////////
+
+.thumbnail-popover {
+    color: @grey-dark;
+    z-index: 3;
+}
+
+.thumbnail-title {
+    &:extend(.text-center);
+}
+
+.thumbnail-price {
+    &:extend(.text-center);
+}
