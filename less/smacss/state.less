@@ -1,0 +1,504 @@
+  /////////////
+ // Buttons //
+/////////////
+
+// Classic
+//////////
+
+.btn { //bS
+    &:not(.btn-default):not(.btn-primary):not(.btn-success):not(.btn-danger):not(.btn-info):not(.btn-warning):not(.btn-link) {
+        &:hover,
+        &.hover,
+        &:focus,
+        &.focus,
+        &:active,
+        &.active,
+        .open .dropdown-toggle& {
+            background-color: @grey;
+        }
+    }
+}
+
+
+// Danger
+/////////
+
+.btn-danger { //bS
+    &:hover,
+    &.hover,
+    &:focus,
+    &.focus,
+    &:active,
+    &.active,
+    .open .dropdown-toggle& { //bS
+        border: 0;
+        padding: @padding-base-vertical @padding-base-horizontal;
+    }
+
+    &.btn-lg {
+        &:hover,
+        &.hover,
+        &:focus,
+        &.focus,
+        &:active,
+        &.active,
+        .open .dropdown-toggle& {
+            padding: @padding-large-vertical @padding-large-horizontal;
+        }
+    }
+
+    &.btn-sm {
+        &:hover,
+        &.hover,
+        &:focus,
+        &.focus,
+        &:active,
+        &.active,
+        .open .dropdown-toggle& {
+            padding: @padding-small-vertical @padding-small-horizontal;
+        }
+    }
+
+    &.btn-xs {
+        &:hover,
+        &.hover,
+        &:focus,
+        &.focus,
+        &:active,
+        &.active,
+        .open .dropdown-toggle& {
+            padding: (@padding-xs-vertical + 1px) @padding-xs-horizontal;
+        }
+    }
+}
+
+// Danger white
+
+.btn-danger-white {
+    &:hover {
+        border-color: @black;
+        color: @black;
+        border: 2px solid;
+        padding: (@padding-base-vertical - @btn-danger-border-size) (@padding-base-horizontal - @btn-danger-border-size);
+        background: none;
+        .transition (all 150ms @switcher-transition-timing);
+    }
+}
+
+
+
+
+
+
+  //////////////////
+ // Form Element //
+//////////////////
+
+// Radio & Checkbox
+///////////////////
+
+.custom-checkbox {
+    &:disabled {
+        + label {
+            background-image: url("@{imagesPath}/checkbox/disabled.png");
+        }
+
+        &:checked {
+            + label {
+                background-image: url("@{imagesPath}/checkbox/checked-disabled.png");
+            }
+        }
+    }
+
+    &:checked {
+        + label {
+            background-image: url("@{imagesPath}/checkbox/checked.png");
+        }
+    }
+}
+
+
+.custom-radio {
+    &:disabled {
+        + label {
+            background-image: url("@{imagesPath}/radio/disabled.png");
+        }
+
+        &:checked {
+            + label {
+                background-image: url("@{imagesPath}/radio/checked-disabled.png");
+            }
+        }
+    }
+
+    &:checked {
+        + label {
+            background-image: url("@{imagesPath}/radio/checked.png");
+        }
+    }
+}
+
+
+// Switcher
+///////////
+
+.switcher {
+    &:checked {
+        + label {
+            &:before,
+            &:after {
+                .transition (all @switcher-transition-duration @switcher-transition-timing);
+            }
+
+            &:before {
+                background-color: @switcher-checked-color;
+                .box-shadow(inset 0 15px 15px fade(@black,10%));
+            }
+
+            &:after {
+                left: @switcher-width - (@switcher-height - (@switcher-toggle-space * 2)) - @switcher-toggle-space;
+            }
+        }
+    }
+}
+
+
+// Checkbox to switcher
+///////////////////////
+
+@media (min-width: 769px) {
+    .checkbox-to-switcher {
+        &:disabled {
+            + label {
+                background-image: url("@{imagesPath}/checkbox/disabled.png");
+            }
+
+            &:checked {
+                + label {
+                    background-image: url("@{imagesPath}/checkbox/checked-disabled.png");
+                }
+            }
+        }
+
+        &:checked {
+            + label {
+                background-image: url("@{imagesPath}/checkbox/checked.png");
+            }
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .checkbox-to-switcher {
+        &:checked {
+            + label {
+                &:before,
+                &:after {
+                    .transition (all @switcher-transition-duration @switcher-transition-timing);
+                }
+
+                &:before {
+                    background-color: @switcher-checked-color;
+                    .box-shadow(inset 0 15px 15px fade(@black,10%));
+                }
+
+                &:after {
+                    left: @switcher-width - (@switcher-height - (@switcher-toggle-space * 2)) - @switcher-toggle-space;
+                }
+            }
+        }
+    }
+}
+
+
+// Form control
+///////////////
+
+.form-control { //bS
+    &[disabled],
+    &[readonly],
+    fieldset[disabled] & {
+        color: @input-border;
+
+        // Firefox
+        // See https://github.com/twbs/bootstrap/pull/11526
+        &::-moz-placeholder {
+            color: @input-border;
+        }
+
+        // Internet Explorer 10+
+        &:-ms-input-placeholder {
+            color: @input-border;
+        }
+
+        // Safari and Chrome
+        &::-webkit-input-placeholder {
+            color: @input-border;
+        }
+    }
+}
+
+// State
+
+.has-success,
+.has-error,
+.has-warning {
+    .form-control {
+        background-position: right 10px center;
+        background-repeat: no-repeat;
+    }
+}
+
+.has-success {
+    .form-control {
+        background-image: url("@{imagesPath}/background-input/success.png");
+    }
+}
+
+.has-error {
+    .form-control {
+        background-image: url("@{imagesPath}/background-input/error.png");
+    }
+}
+
+.has-warning {
+    .form-control {
+        background-image: url("@{imagesPath}/background-input/warning.png");
+    }
+}
+
+
+
+
+
+
+  ////////////////
+ // Breadcrumb //
+////////////////
+
+// Process
+//////////
+
+.process {
+    li {
+        &.is-active {
+            background-color: @mint-dark;
+            color: @white;
+
+            &:after {
+                background-image: url("@{imagesPath}/process/process-breadcrumb-arrow-active.png");
+            }
+        }
+
+        &.is-next,
+        &.is-success {
+            background-color: transparent;
+
+            &:after {
+                background-image: none;
+            }
+        }
+
+        &.is-success {
+            padding-left: 35px;
+            font-weight: bold;
+            color: @mint-dark;
+        }
+
+        a {
+            &:hover {
+                color: @black;
+                text-decoration: none;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+  //////////////////////
+ // Desktop Carousel //
+//////////////////////
+
+// Top Carousel
+///////////////
+
+// elements
+
+.item {
+    &.active:not(.first-item),
+    &.progressing {
+        .progress {
+            width: 100%;
+            .transition (width 4400ms linear);
+        }
+    }
+}
+
+
+// Bottom Carousel
+//////////////////
+
+.bottom-carousel {
+
+    .carousel-indicators {
+        li {
+            &.active {
+                border: 0;
+                &:extend(.bg-mint);
+            }
+        }
+    }
+}
+
+// element
+
+.top-carousel-item-link {
+    &.is-active {
+        .box-shadow(0 0 0px 3px @mint);
+    }
+}
+
+
+
+
+
+
+  ////////////////
+ // Tabcordion //
+////////////////
+
+// Tab
+//////
+
+@media(min-width: 769px) {
+    .tabcordion-head {
+        a {
+            &:hover {
+                background-color: @anthracite;
+                text-decoration: none;
+            }
+        }
+
+        &.is-in {
+            a {
+                background-color: @mint;
+                &:extend(.strong);
+
+                &:hover {
+                    background-color: @mint;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+}
+
+
+// Acordion
+///////////
+
+@media (max-width: 768px) {
+    .tabcordion-head {
+        &.is-in {
+            &:after {
+                content: "\f078";
+            }
+
+            a {
+                border-color: @white;
+                color: @mint;
+
+                &:hover {
+                    color: @anthracite-dark;
+                }
+            }
+        }
+
+        a {
+            &:hover {
+                span {
+                    text-decoration: none;
+                    background-color: @white;
+                    color: @mint;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+
+  ///////////////////////////
+ // Horizontal Breadcrumb //
+///////////////////////////
+
+.vertical-breadcrumb {
+    li {
+        &.is-active {
+            color: @verticalBreadcrumbActiveColor;
+
+            &:before {
+                background-color: @verticalBreadcrumbActiveColor;
+            }
+
+            &:after {
+                background-color: @verticalBreadcrumbActiveColor;
+            }
+
+            .check-breadcrumb {
+                display: inline-block !important;
+                visibility: visible !important;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+  //////////
+ // Gate //
+//////////
+
+.gate {
+    &:hover {
+        text-decoration: none;
+        color: @white;
+
+        .gate-hover {
+            visibility: visible;
+        }
+    }
+
+    .btn {
+        &,
+        &:hover {
+            background-color: @purple !important;
+            color: @white !important;
+        }
+    }
+}
+
+
+
+
+
+
+  ///////////////
+ // Thumbnail //
+///////////////
+
+.thumbnail-popover {
+    &:hover {
+        color: darken(@grey-dark, 25%);
+    }
+}
